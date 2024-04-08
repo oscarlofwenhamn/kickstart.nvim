@@ -369,6 +369,7 @@ return {
         'stylua', -- Used to format Lua code
         'goimports-reviser',
         'golines',
+        'delve',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -654,4 +655,26 @@ return {
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'custom.plugins' },
+  {
+    'mfussenegger/nvim-dap',
+  },
+  {
+    'leoluz/nvim-dap-go',
+    ft = 'go',
+    dependencies = 'mfussenegger/nvim-dap',
+    config = function(_, opts)
+      require('dap-go').setup(opts)
+    end,
+  },
+  {
+    'olexsmir/gopher.nvim',
+    ft = 'go',
+    config = function(_, opts)
+      require('gopher').setup(opts)
+      -- require('core.utils').load_mappings 'gopher'
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
 }
