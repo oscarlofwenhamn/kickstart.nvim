@@ -7,6 +7,13 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
+-- (nvim-tree) disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- (nvim-tree) optionally enable 24-bit colour
+-- vim.opt.termguicolors = true
+
 require 'options'
 require 'mappings'
 require 'autocommands'
