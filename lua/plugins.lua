@@ -317,6 +317,7 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
+        templ = {},
         gopls = {
           settings = {
             gopls = {
@@ -416,6 +417,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'gofmt', 'goimports-reviser', 'golines' },
+        templ = { 'templ' },
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
@@ -598,6 +600,7 @@ return {
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    dependencies = { 'vrischmann/tree-sitter-templ' },
     build = ':TSUpdate',
     opts = {
       ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
