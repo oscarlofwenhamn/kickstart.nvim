@@ -328,6 +328,10 @@ return {
             },
           },
         },
+        tailwindcss = {
+          hovers = true,
+          suggestions = true,
+        },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -371,6 +375,9 @@ return {
         'goimports-reviser',
         'golines',
         'delve',
+        'htmx-lsp',
+        'html-lsp',
+        'emmet-language-server',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -418,9 +425,11 @@ return {
         lua = { 'stylua' },
         go = { 'gofmt', 'goimports-reviser', 'golines' },
         templ = { 'templ' },
+        htmx = { 'htmx-lsp' },
+        html = { 'html-lsp', 'emmet_language_server' },
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        -- javascript = { { 'prettierd', 'prettier' } },
       },
     },
   },
